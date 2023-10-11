@@ -4,13 +4,17 @@
 
 <template>
   <div class="margin">
-    <bb-input border label="123" />
+    <bb-button round="small">
+    </bb-button>
+  </div>
+  <div class="margin">
   </div>
 </template>
 
 <script setup>
 import {
   BbInput,
+  BbButton,
 } from './component-index.js'
 </script>
 

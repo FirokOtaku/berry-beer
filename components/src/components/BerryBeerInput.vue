@@ -4,7 +4,9 @@
 
 <template>
   <div :class="cssClasses">
-    <i v-if="prefix">{{ prefix }}</i>
+    <slot name="prefix">
+      <i v-if="prefix">{{ prefix }}</i>
+    </slot>
 
     <input :type="type"
            :value="modelValue"
@@ -22,8 +24,10 @@
     <label v-if="label">{{ label }}</label>
     <span v-if="helper" class="helper">{{ helper }}</span>
 
-    <progress class="circle" v-if="loading"></progress>
-    <i v-else-if="suffix">{{ suffix }}</i>
+    <slot name="suffix">
+      <i v-if="!loading && suffix">{{ suffix }}</i>
+      <progress class="circle" v-else-if="loading"></progress>
+    </slot>
 
     <slot name="tooltip" />
   </div>

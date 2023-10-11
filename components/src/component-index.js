@@ -3,8 +3,8 @@ import { defineAsyncComponent } from 'vue'
 
 function load(path)
 {
-    return () => import(path)
+    return defineAsyncComponent(() => import(path))
 }
 
-export const BbInput = defineAsyncComponent(load('./components/BerryBeerInput.vue'))
-
+export const BbInput = load('./components/BerryBeerInput.vue')
+export const BbButton = load('./components/BerryBeerButton.vue')
