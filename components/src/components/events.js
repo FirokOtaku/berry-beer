@@ -7,3 +7,8 @@ export const Keyboard = [
     'keyup',
     'keypress',
 ]
+
+export const Input = [
+    'change',
+    'update:modelValue',
+]

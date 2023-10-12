@@ -19,14 +19,16 @@ function convert2hump(raw)
 }
 
 /**
- * @return {Map<string, BooleanConstructor>}
+ * @param {string[]} keys
+ * @param {BooleanConstructor | StringConstructor | NumberConstructor} cons
+ * @return {Map<string, BooleanConstructor | StringConstructor | NumberConstructor>}
  * */
-function pack(keys)
+function pack(keys, cons = Boolean)
 {
     const ret = {}
     for(const key of keys)
     {
-        ret[convert2hump(key)] = Boolean
+        ret[convert2hump(key)] = cons
     }
     return ret
 }
@@ -46,40 +48,31 @@ const loading = [
 ]
 export const Loading = pack(loading)
 
-const round = [
-    'no-round',
-    'small-round',
-    'medium-round',
-    'round',
-    'large-round',
+const invalid = [
+    'invalid',
 ]
-export const Round = pack(round)
+export const Invalid = pack(invalid)
 
-const size = [
-    'tiny',
-    'small',
-    'medium',
-    'large',
-    'extra',
-]
-export const Size = pack(size)
+const helpers = [
 
-const elevate = [
-    'no-elevate',
-    'small-elevate',
-    'medium-elevate',
-    'large-elevate',
-]
-export const Elevate = pack(elevate)
+    // alignments
 
-const direction = [
-    'horizontal',
-    'vertical',
-]
-export const Direction = pack(direction)
+    'middle-align',
+    'bottom-align',
+    'top-align',
+    'left-align',
+    'right-align',
+    'center-align',
 
+    // blurs
 
-const colors = [
+    'blur',
+    'small-blur',
+    'medium-blur',
+    'large-blur',
+
+    // colors
+
     'primary',
     'primary-container',
     'primary-border',
@@ -394,20 +387,192 @@ const colors = [
     'transparent',
     'transparent-border',
     'transparent-text',
+
+    // dividers
+
+    'divider',
+    'small-divider',
+    'medium-divider',
+    'large-divider',
+
+    // elevates
+
+    'no-elevate',
+    'elevate',
+    'small-elevate',
+    'medium-elevate',
+    'large-elevate',
+
+    // forms
+
+    'no-round',
+    'small-round',
+    'medium-round',
+    'round',
+    'large-round',
+
+    'top-round',
+    'left-round',
+    'right-round',
+    'bottom-round',
+
+    'circle',
+    'square',
+
+    'border',
+    'no-border',
+
+    'tiny',
+    'small',
+    'medium',
+    'large',
+    'extra',
+
+    // margins
+
+    'no-margin',
+    'tiny-margin',
+    'small-margin',
+    'medium-margin',
+    'margin',
+    'large-margin',
+    'left-margin',
+    'right-margin',
+    'top-margin',
+    'bottom-margin',
+    'horizontal-margin',
+    'vertical-margin',
+    'auto-margin',
+
+    // opacities
+
+    'no-opacity',
+    'opacity',
+    'small-opacity',
+    'medium-opacity',
+    'large-opacity',
+
+    // paddings
+
+    'no-padding',
+    'tiny-padding',
+    'small-padding',
+    'medium-padding',
+    'padding',
+    'large-padding',
+    'left-padding',
+    'right-padding',
+    'top-padding',
+    'bottom-padding',
+    'horizontal-padding',
+    'vertical-padding',
+    'auto-padding',
+
+    // positions
+
+    'front',
+    'back',
+    'left',
+    'right',
+    'top',
+    'bottom',
+    'center',
+    'middle',
+
+    // responsive
+
+    'responsive',
+
+    // scrolls
+
+    'scroll',
+    'no-scroll',
+
+    // shadows
+
+    'shadow',
+    'left-shadow',
+    'right-shadow',
+    'bottom-shadow',
+    'top-shadow',
+
+    // sizes
+
+    'small-width',
+    'medium-width',
+    'large-width',
+    'small-height',
+    'medium-height',
+    'large-height',
+    'wrap',
+    'no-wrap',
+
+    // spaces
+
+    'tiny-space',
+    'space',
+    'medium-space',
+    'large-space',
+
+    // typography
+
+    'link',
+    'inverse-link',
+    'truncate',
+    'small-text',
+    'medium-text',
+    'large-text',
+    'upper',
+    'lower',
+    'capitalize',
+    'bold',
+    'overline',
+    'underline',
+    'italic',
+
+    'no-line',
+    'tiny-line',
+    'small-line',
+    'medium-line',
+    'large-line',
+    'extra-line',
+
+    // waves
+
+    'wave',
+    'no-wave',
 ]
-export const Colors = pack(colors)
+export const Helpers = pack(helpers)
+
+const affix = [
+    'prefix',
+    'suffix',
+]
+export const Affix = pack(affix, String)
+
+export const ModelValue = {
+    modelValue: { required: false },
+}
 
 const Keys = [
-    ...Object.keys(Round),
-    ...Object.keys(Size),
-    ...Object.keys(Elevate),
-    ...Object.keys(Direction),
-    ...Object.keys(Colors),
+    ...Object.keys(Invalid),
+    ...Object.keys(Helpers),
+    ...Object.keys(Affix),
 ]
 
 export function combine(props = {})
 {
-    return Object.entries(props)
-        .map(([key,value]) => value && Keys.indexOf(key) ? convert2line(key) : null)
-        .filter(v => v !== null)
+    const ret = []
+    for(const [key, value] of Object.entries(props))
+    {
+        if(value && Keys.includes(key))
+        {
+            ret.push(convert2line(key))
+        }
+    }
+    return ret.join(' ')
+    // return Object.entries(props)
+    //     .filter(([key, value]) => value && Keys.includes(key))
+    //     .map(([key, value]) => convert2line(key))
+    //     .join(' ')
 }
