@@ -51,8 +51,8 @@ CSS classes in Beer.css are converted to `props` of components.
 - [x] `<button>`
 - [x] `<select>`
 - [ ] slider
-- [ ] switch
-- [ ] radio
+- [x] switch
+- [x] radio
 - [x] checkbox
 - [ ] search
 - [ ] progress
@@ -60,7 +60,7 @@ CSS classes in Beer.css are converted to `props` of components.
 - [ ] `<textarea>`
 - [x] dialog
 - [ ] menu
-- [ ] page
+- [x] page
 - [ ] snackbar
 - [ ] stepper
 - [ ] expansion

@@ -14,6 +14,8 @@ export const BbChip = load('./components/BerryBeerChip.vue')
 export const BbDialog = load('./components/BerryBeerDialog.vue')
 export const BbPage = load('./components/BerryBeerPage.vue')
 export const BbSnackbar = load('./components/BerryBeerSnackbar.vue')
+export const BbSwitch = load('./components/BerryBeerSwitch.vue')
+export const BbRadio = load('./components/BerryBeerRadio.vue')
 
 export const BbTheme = load('./components/BerryBeerTheme.vue')
 
@@ -32,6 +34,8 @@ export function cheers(app)
         BbDialog,
         BbPage,
         BbSnackbar,
+        BbSwitch,
+        BbRadio,
 
         BbTheme,
     })) app.component(name, component)

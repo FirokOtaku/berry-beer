@@ -3,7 +3,7 @@
 </style>
 
 <template>
-<label class="checkbox" :class="cssClasses">
+<label class="switch" :class="cssClasses">
   <input type="checkbox" :checked="modelValue" @input="$emit('update:modelValue', $event.target.checked)">
   <span>
     <slot>

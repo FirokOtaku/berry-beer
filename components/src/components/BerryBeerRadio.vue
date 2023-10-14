@@ -3,8 +3,10 @@
 </style>
 
 <template>
-<label class="checkbox" :class="cssClasses">
-  <input type="checkbox" :checked="modelValue" @input="$emit('update:modelValue', $event.target.checked)">
+<label class="radio" :class="cssClasses">
+  <input type="radio" :name="name"
+         :checked="modelValue"
+         @input="$emit('update:modelValue', $event.target.checked)">
   <span>
     <slot>
       <template v-if="label">{{ label }}</template>
@@ -27,6 +29,7 @@ const props = defineProps({
   ...ModelValue,
   label: { type: String, default: null },
   icon: { type: [String, Boolean], default: null },
+	name: { type: String, required: true },
   iconSelected: { type: String, default: null },
 })
 
