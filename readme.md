@@ -56,12 +56,13 @@ CSS classes in Beer.css are converted to `props` of components.
 - [x] checkbox
 - [ ] search
 - [ ] progress
-- [ ] chip
+- [x] chip
 - [ ] `<textarea>`
 - [x] dialog
 - [ ] menu
 - [ ] page
 - [ ] snackbar
 - [ ] stepper
+- [ ] expansion
 - [ ] layout(s)
 - [x] color theme

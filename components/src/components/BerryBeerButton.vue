@@ -27,11 +27,12 @@ const props = defineProps({
   ...Loading,
   ...Helpers,
   ...Affix,
+  extend: { type: Boolean, default: false },
 })
 const emits = defineEmits([
     ...Mouse,
 ])
 
-const cssClasses = computed(() => combine(props))
+const cssClasses = computed(() => combine(props) + (props.extend ? ' extend' : ''))
 
 </script>

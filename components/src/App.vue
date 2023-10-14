@@ -18,21 +18,13 @@
       123
     </bb-page>
 
+    <bb-snackbar></bb-snackbar>
+
   </bb-theme>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import {
-  BbInput,
-  BbButton,
-  BbSelect,
-  BbCheckbox,
-  BbTheme,
-  BbChip,
-  BbDialog,
-  BbPage,
-} from './component-index.js'
 
 const item = ref(1)
 const checked = ref(false)
