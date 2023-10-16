@@ -1,32 +1,37 @@
 
 import 'beercss'
 import 'material-dynamic-colors'
-import { defineAsyncComponent, } from 'vue'
 
-function load(path)
-{
-    return defineAsyncComponent(() => import(/* @vite-ignore */ path))
-}
+import BeeryBeerInput from './components/BerryBeerInput.vue'
+import BeeryBeerButton from './components/BerryBeerButton.vue'
+import BeeryBeerSelect from './components/BerryBeerSelect.vue'
+import BeeryBeerCheckbox from './components/BerryBeerCheckbox.vue'
+import BeeryBeerChip from './components/BerryBeerChip.vue'
+import BeeryBeerDialog from './components/BerryBeerDialog.vue'
+import BeeryBeerPage from './components/BerryBeerPage.vue'
+import BeeryBeerSnackbar from './components/BerryBeerSnackbar.vue'
+import BeeryBeerSwitch from './components/BerryBeerSwitch.vue'
+import BeeryBeerRadio from './components/BerryBeerRadio.vue'
+import BeeryBeerTheme from './components/BerryBeerTheme.vue'
 
-export const BbInput = load('./components/BerryBeerInput.vue')
-export const BbButton = load('./components/BerryBeerButton.vue')
-export const BbSelect = load('./components/BerryBeerSelect.vue')
-export const BbCheckbox = load('./components/BerryBeerCheckbox.vue')
-export const BbChip = load('./components/BerryBeerChip.vue')
-export const BbDialog = load('./components/BerryBeerDialog.vue')
-export const BbPage = load('./components/BerryBeerPage.vue')
-export const BbSnackbar = load('./components/BerryBeerSnackbar.vue')
-export const BbSwitch = load('./components/BerryBeerSwitch.vue')
-export const BbRadio = load('./components/BerryBeerRadio.vue')
+export const BbInput = BeeryBeerInput
+export const BbButton = BeeryBeerButton
+export const BbSelect = BeeryBeerSelect
+export const BbCheckbox = BeeryBeerCheckbox
+export const BbChip = BeeryBeerChip
+export const BbDialog = BeeryBeerDialog
+export const BbPage = BeeryBeerPage
+export const BbSnackbar = BeeryBeerSnackbar
+export const BbSwitch = BeeryBeerSwitch
+export const BbRadio = BeeryBeerRadio
 
-export const BbTheme = load('./components/BerryBeerTheme.vue')
+export const BbTheme = BeeryBeerTheme
 
 /**
  * @param {import('vue').App} app
  * */
 export function cheers(app)
 {
-    console.log('cheers!')
     for(const [name, component] of Object.entries({
         BbInput,
         BbButton,
@@ -41,4 +46,5 @@ export function cheers(app)
 
         BbTheme,
     })) app.component(name, component)
+    console.log('cheers!')
 }

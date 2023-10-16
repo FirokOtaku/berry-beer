@@ -30,6 +30,16 @@ CSS classes in Beer.css are converted to `props` of components.
 npm i berry-beer-components
 ```
 
+```javascript
+import { cheers } from 'berry-beer-components/src/components.js'
+import App from './App.vue'
+import { createApp } from 'vue'
+
+const app = createApp(App)
+cheers(app) // install all berry-beer components
+app.mount('#app')
+```
+
 ```html
 <!-- Beer.css -->
 <button class="primary small-round large-elevate">
