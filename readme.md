@@ -1,5 +1,9 @@
 ![Berry Beer](docs/berry-beer.svg "berry beer")
 
+> 仍在开发中, **尚未准备好** 面向生产环境
+> 
+> Still under development, **not ready** for production use
+
 自用 [Beer.css](https://www.beercss.com/) + [Vue 3](https://cn.vuejs.org/) 组件封装.
 
 主要目的是简化部分 Beer.css 复合组件的使用 (比如 `<input>`).
@@ -21,6 +25,10 @@ CSS classes in Beer.css are converted to `props` of components.
 > For a pure CSS lib,  
 > this kind of wrapper may not be the best choice.  
 > So this lib is more like an experiment.
+
+```bash
+npm i berry-beer-components
+```
 
 ```html
 <!-- Beer.css -->
