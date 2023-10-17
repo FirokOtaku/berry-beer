@@ -4,14 +4,14 @@
   "homepage": "https://github.com/FirokOtaku/berry-beer",
   "name": "berry-beer-components",
   "private": false,
-  "version": "0.8.0",
+  "version": "0.10.0",
   "license": "Mulan PSL v2",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
-    "pub": "npm build && npm publish"
+    "pub": "npm run build && npm publish"
   },
   "dependencies": {
     "beercss": "^3.4.0",

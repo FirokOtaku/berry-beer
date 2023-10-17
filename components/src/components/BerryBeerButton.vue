@@ -28,6 +28,7 @@ const props = defineProps({
   ...Helpers,
   ...Affix,
   extend: { type: Boolean, default: false },
+  text: { type: String, default: null },
 })
 const emits = defineEmits([
     ...Mouse,
