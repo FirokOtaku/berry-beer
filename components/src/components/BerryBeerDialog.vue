@@ -3,14 +3,17 @@
 </style>
 
 <template>
-<div class="overlay" v-if="overlay"></div>
+<div class="overlay"
+     :class="active ? 'active' : ''"
+     v-if="overlay"
+     @click="$emit('close')"></div>
 <dialog :class="cssClasses" :data-ui="dataUi">
   <slot />
 </dialog>
 </template>
 
 <script setup>
-import { computed, defineProps, } from 'vue'
+import { computed, defineProps, defineEmits, } from 'vue'
 import { combine, Helpers, } from './attrs.js'
 
 const props = defineProps({
@@ -21,6 +24,9 @@ const props = defineProps({
   dataUi: { type: String, default: null },
   overlay: { type: Boolean, default: false },
 })
+const emits = defineEmits([
+    'close',
+])
 
 const cssClasses = computed(() => combine(props) + (props.active ? ' active' : '') + (props.modal ? ' modal' : '') + (props.fullscreen ? ' max' : ''))
 </script>
